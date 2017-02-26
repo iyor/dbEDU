@@ -36,4 +36,8 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 
+# To keep keys and passwords safe
+.env
+#OS-Specific
 .DS_Store
+

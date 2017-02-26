@@ -1,3 +1,5 @@
+import config from 'config';
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -9,6 +11,23 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+
+// MongoDB client
+var MongoClient = require('mongodb').MongoClient
+  , assert = require('assert');
+
+// Connection URL
+console.log(process.env.DB_URL);
+var url = 'mongodb://test:Herman1@ds161209.mlab.com:61209/packedu';
+
+// Use connect method to connect to the server
+MongoClient.connect(url, function(err, db) {
+  assert.equal(null, err);
+  console.log("Connected successfully to server");
+
+  db.close();
+});
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

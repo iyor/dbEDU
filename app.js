@@ -1,4 +1,5 @@
-import config from 'config';
+//import config from 'config';
+require('dotenv').config()
 
 var express = require('express');
 var path = require('path');
@@ -17,8 +18,7 @@ var MongoClient = require('mongodb').MongoClient
   , assert = require('assert');
 
 // Connection URL
-console.log(process.env.DB_URL);
-var url = 'mongodb://test:Herman1@ds161209.mlab.com:61209/packedu';
+var url = process.env.DB_URL;
 
 // Use connect method to connect to the server
 MongoClient.connect(url, function(err, db) {

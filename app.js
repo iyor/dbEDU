@@ -1,4 +1,6 @@
 //import config from 'config';
+//import db from 'db'
+
 require('dotenv').config()
 
 var express = require('express');
@@ -13,6 +15,7 @@ var users = require('./routes/users');
 
 var app = express();
 
+//const db = MongoClient.connect(process.env.DB_URL)
 // MongoDB client
 var MongoClient = require('mongodb').MongoClient
   , assert = require('assert');

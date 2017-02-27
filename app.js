@@ -1,5 +1,5 @@
-//import config from 'config';
-//import db from 'db'
+import config from 'config'
+import db from 'db'
 
 require('dotenv').config()
 
@@ -93,4 +93,5 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+//module.exports = app;
+export default app

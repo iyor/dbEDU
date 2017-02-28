@@ -38,6 +38,10 @@ jspm_packages
 
 # To keep keys and passwords safe
 .env
+
 #OS-Specific
 .DS_Store
+
+# vim edit files
+.*.swp
 

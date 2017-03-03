@@ -16,7 +16,7 @@ router.get('/', (req, res, next) => {
 })
 
 router.get('/test',  (req, res, next) => {
-  dbClient.documents();
+  dbServices.test();
 })
 
 function callback() {

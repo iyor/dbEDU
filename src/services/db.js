@@ -5,9 +5,11 @@ export var dbClient;
 
 export default class db {
   constructor(url) {
-    dbClient = mongodb.MongoClient;
-    dbClient.connect(url, function(err, db) {
+    var MongoClient = mongodb.MongoClient;
+    MongoClient.connect(url, function(err, db) {
+      dbClient = db;
       console.log("The database is now online");
+      console.log(dbClient);
     });
 }
 }

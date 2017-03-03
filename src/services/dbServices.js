@@ -1,7 +1,7 @@
 import config from 'config'
 import mongodb from 'mongodb'
 import db from './db'
-import dbClient from './db'
+import {dbClient} from './db'
 
 export function documents() {
 console.log("Getting documents");

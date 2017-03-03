@@ -5,8 +5,6 @@ import logger from 'morgan'
 import bodyParser from 'body-parser'
 import cookieParser from 'cookie-parser'
 import path from 'path'
-import index from 'routes/index'
-import users from 'routes/users'
 import db from 'services/db'
 
 
@@ -20,12 +18,10 @@ const mdb = new db(config.DB_URL);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// view engine setup     -- DETTA KOM MED I TEMPLATE; BÖR TAS BORT
+// view engine setup 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-// uncomment after placing your favicon in /public     -- DETTA KOM MED I TEMPLATE; BÖR TAS BORT
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));      -- DETTA KOM MED I TEMPLATE; BÖR TAS BORT
 app.use(logger('dev'));
 
 app.use(cookieParser());
@@ -53,5 +49,4 @@ app.use(function(err, req, res, next) {       //  -- DETTA KOM MED I TEMPLATE
   res.render('error');
 });
 
-//module.exports = app;
 export default app

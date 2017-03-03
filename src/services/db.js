@@ -9,7 +9,6 @@ export default class db {
     MongoClient.connect(url, function(err, db) {
       dbClient = db;
       console.log("The database is now online");
-      console.log(dbClient);
     });
-}
+  }
 }

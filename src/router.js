@@ -17,4 +17,20 @@ router.get('/', (req, res, next) => {
   });
 })
 
+router.get('/courseName', (req, res, next) => {
+  var findDocs = dbClient.collection('documents');
+  var entries;
+  findDocs.find({}).toArray().then(function(docs) {
+    const cleaned = [];
+    for (var names of docs) {
+      cleaned.push({Coursename:names.a})
+    }
+    res.send(cleaned);
+  })
+});
+
+
+
+
+
 export default router

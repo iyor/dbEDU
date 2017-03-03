@@ -1,13 +1,12 @@
 import config from 'config'
 import express from 'express'
-import db from 'services/db'
+import { getCourses , getCourseNames } from 'routes/studentroutes'
 import { dbClient } from 'services/db'
 
 var router = express.Router();
 
 router.get('/', (req, res, next) => {
-  var findDocs = dbClient.collection('documents');
-  findDocs.find({}).toArray().then(function(docs) {
+  getCourses().then(function(docs) {
     res.json({
       docs: docs
     });
@@ -15,14 +14,12 @@ router.get('/', (req, res, next) => {
 })
 
 router.get('/courseNames', (req, res, next) => {
-  var findDocs = dbClient.collection('documents');
-  findDocs.find({}).toArray().then(function(docs) {
-    const cleaned = [];
-    for (var names of docs) {
-      cleaned.push({Coursename:names.a});
-    }
-    res.send(cleaned);
-  })
+   getCourseNames().then(function(docs) {
+    res.json({
+      courseName : docs
+    });
+  });
 });
+
 
 export default router

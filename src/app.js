@@ -9,7 +9,6 @@ import index from 'routes/index'
 import users from 'routes/users'
 import db from 'services/db'
 
-//require('dotenv').config()        // Kan NOG tas bort
 
 // Setup express app
 var app = express();

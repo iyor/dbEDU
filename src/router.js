@@ -1,7 +1,8 @@
 import config from 'config'
 import express from 'express'
 import db from 'services/db'
-import {documents} from 'services/dbServices'
+import dbServices from 'services/dbServices'
+import {documents, test} from 'services/dbServices'
 
 var router = express.Router();
 
@@ -15,7 +16,7 @@ router.get('/', (req, res, next) => {
 })
 
 router.get('/test',  (req, res, next) => {
-  console.log("TRYING TO REACH DB")
+  dbClient.documents();
 })
 
 function callback() {

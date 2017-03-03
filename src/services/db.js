@@ -1,5 +1,4 @@
 import mongodb from 'mongodb'
-//import {documents} from './dbServices'
 
 export var dbClient;
 
@@ -8,7 +7,6 @@ export default class db {
     var MongoClient = mongodb.MongoClient;
     MongoClient.connect(url, function(err, db) {
       dbClient = db;
-      console.log("The database is now online");
     });
   }
 }

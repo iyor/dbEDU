@@ -7,7 +7,6 @@ import cookieParser from 'cookie-parser'
 import path from 'path'
 import db from 'services/db'
 
-
 // Setup express app
 var app = express();
 

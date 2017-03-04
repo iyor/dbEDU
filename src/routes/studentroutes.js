@@ -11,11 +11,22 @@ export function getCourseNames() {
       console.log(courseList)
       let cleaned = []
       console.log("Printed after clean")
-      for (var names of courseList) {
-        cleaned.push({Coursename:names.a});
+      for (var courses of courseList) {
+        cleaned.push({Coursename:courses.a});
       }
       console.log(cleaned)
       return cleaned
   })
-
 }
+
+export function getCourseDescription() {
+  let findDocs = dbClient.collection('documents');
+  return findDocs.find({}).toArray().then(function(courseList) {
+    let cleaned = []
+    for (var courses of courseList) {
+      cleaned.push({CourseDescr:courses.a});
+    }
+    console.log(cleaned)
+    return cleaned
+  })
+} 

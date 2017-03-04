@@ -1,12 +1,12 @@
 import config from 'config'
 import express from 'express'
-import { getCourses , getCourseNames } from 'routes/studentroutes'
+import * as student from 'routes/studentroutes'
 import { dbClient } from 'services/db'
 
 var router = express.Router();
 
 router.get('/', (req, res, next) => {
-  getCourses().then(function(docs) {
+  student.getCourses().then(function(docs) {
     res.json({
       docs: docs
     });
@@ -14,12 +14,20 @@ router.get('/', (req, res, next) => {
 })
 
 router.get('/courseNames', (req, res, next) => {
-   getCourseNames().then(function(docs) {
+  student.getCourseNames().then(function(docs) {
     res.json({
       courseName : docs
     });
   });
 });
 
+
+router.get('/courseDesc', (req, res, next) => {
+  student.getCourseDescription().then(function(docs) {
+    res.json({
+      courseDesc : docs
+    });
+  });
+});
 
 export default router

@@ -9,7 +9,7 @@ var router = express.Router()
 router.get('/', (req, res, next) => {
   student.getCourses().then(function(docs) {
     res.json({
-      docs: docs
+      Collections: docs
     })
   })
 })
@@ -17,7 +17,7 @@ router.get('/', (req, res, next) => {
 router.get('/courseNames', (req, res, next) => {
   student.getCourseNames().then(function(docs) {
     res.json({
-      courseName : docs
+      Course_Name : docs
     })
   })
 })
@@ -26,7 +26,7 @@ router.get('/courseNames', (req, res, next) => {
 router.get('/courseDesc', (req, res, next) => {
   student.getCourseDescription().then(function(docs) {
     res.json({
-      courseDesc : docs
+      Course_Description : docs
     })
   })
 })

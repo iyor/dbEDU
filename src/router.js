@@ -2,14 +2,13 @@ import config from 'config'
 import express from 'express'
 import * as student from 'routes/studentroutes'
 import * as admin from 'routes/adminroutes'
-import { dbClient } from 'services/db'
 
 var router = express.Router()
 
 router.get('/', (req, res, next) => {
-  student.getCourses().then(function(docs) {
+  student.getCourses().then(function(course) {
     res.json({
-      Collections: docs
+      Course: course 
     })
   })
 })
@@ -31,22 +30,26 @@ router.get('/courseDesc', (req, res, next) => {
   })
 })
 
-router.get('/removeCourse', (req, res, next) => {
-    admin.removeOne().then(function(courses){
-    res.json({
-        Course: courses
-    })
-  })
-})
-
 router.get('/findCollections', (req, res, next) => {
-    admin.listCollections().then(function(collections){
+  admin.listCollections().then(function(collections){
     res.json({
       Collections: collections
     })
   })
 })
 
+//Temporary method - needs to be removed or hidden to
+//avoid unauthorized removal of courses.
+router.delete('/removeCourse', (req, res) => {
+  admin.removeOne(req.body.course).then(function(courses){
+    res.json({
+        Course: courses
+    })
+  })
+})
+
+//Temporary method - needs to be removed or hidden to
+//avoid unauthorized removal of the entire course collection.
 router.delete('/removeDB', (req, res) => {
   admin.dropAll().then(function(result){
     res.json({
@@ -54,14 +57,4 @@ router.delete('/removeDB', (req, res) => {
     })
   })
 })
-
-//router.post('/createCol' (req, res) => {
-//  admin.newCollection().then(function(result) {
-//    res.json({
-//      Created: result
-//    })
-//  })
-//})
-//
-
 export default router

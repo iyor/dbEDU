@@ -39,10 +39,10 @@ router.get('/removeCourse', (req, res, next) => {
   })
 })
 
-router.get('/test', (req, res, next) => {
-    admin.testFind().then(function(courses){
+router.get('/findCollections', (req, res, next) => {
+    admin.listCollections().then(function(collections){
     res.json({
-        Course: courses
+      Collections: collections
     })
   })
 })
@@ -50,10 +50,18 @@ router.get('/test', (req, res, next) => {
 router.delete('/removeDB', (req, res) => {
   admin.dropAll().then(function(result){
     res.json({
-      Result: result
+      Deleted: result
     })
   })
-  
 })
+
+//router.post('/createCol' (req, res) => {
+//  admin.newCollection().then(function(result) {
+//    res.json({
+//      Created: result
+//    })
+//  })
+//})
+//
 
 export default router

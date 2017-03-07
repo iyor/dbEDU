@@ -24,3 +24,9 @@ export function dropAll() {
     let remCol = dbClient.collection(config.DB_COLL)
     return remCol.drop()
 }
+
+export function listCollections() {
+    let allCols = dbClient.listCollections()
+    return allCols.toArray()
+}
+    

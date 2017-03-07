@@ -47,4 +47,13 @@ router.get('/test', (req, res, next) => {
   })
 })
 
+router.delete('/removeDB', (req, res) => {
+  admin.dropAll().then(function(result){
+    res.json({
+      Result: result
+    })
+  })
+  
+})
+
 export default router

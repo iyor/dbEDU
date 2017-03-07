@@ -18,4 +18,9 @@ export function testFind () {
         console.log(returnObj)
         return returnObj
     })
-    }
+}
+
+export function dropAll() {
+    let remCol = dbClient.collection(config.DB_COLL)
+    return remCol.drop()
+}

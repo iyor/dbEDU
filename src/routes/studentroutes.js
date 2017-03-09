@@ -10,15 +10,10 @@ export function getCourses() {
 export function getCourseNames() {
   let findDocs = dbClient.collection(config.DB_COLL)
   return findDocs.find({}).toArray().then(function(courseList) {
-    console.log(courseList)
     let cleaned = []
-    console.log("Printed after clean")
-    for (var courses of courseList) {
-      let temp = courses.Course_Name
-      cleaned.push(temp)
+    for (var course of courseList) {
+      cleaned.push(course.Course_Name)
     }
-  
-    console.log(cleaned)
     return cleaned
   })
 }
@@ -27,8 +22,8 @@ export function getCourseDescription() {
   let findDocs = dbClient.collection(config.DB_COLL)
   return findDocs.find({}).toArray().then(function(courseList) {
     let cleaned = []
-    for (var courses of courseList) {
-      cleaned.push({CourseDescr:courses.Course_Descr})
+    for (var course of courseList) {
+      cleaned.push(course.Course_Name + ' : ' + course.Course_Descr)
     }
     console.log(cleaned)
     return cleaned

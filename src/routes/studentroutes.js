@@ -14,8 +14,10 @@ export function getCourseNames() {
     let cleaned = []
     console.log("Printed after clean")
     for (var courses of courseList) {
-      cleaned.push({Course_name:courses.Course_Name})
+      let temp = courses.Course_Name
+      cleaned.push(temp)
     }
+  
     console.log(cleaned)
     return cleaned
   })

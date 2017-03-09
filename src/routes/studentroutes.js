@@ -14,7 +14,7 @@ export function getCourseNames() {
     let cleaned = []
     console.log("Printed after clean")
     for (var courses of courseList) {
-      cleaned.push({Coursename:courses.a})
+      cleaned.push({Course_name:courses.Course_Name})
     }
     console.log(cleaned)
     return cleaned
@@ -26,7 +26,7 @@ export function getCourseDescription() {
   return findDocs.find({}).toArray().then(function(courseList) {
     let cleaned = []
     for (var courses of courseList) {
-      cleaned.push({CourseDescr:courses.a})
+      cleaned.push({CourseDescr:courses.Course_Descr})
     }
     console.log(cleaned)
     return cleaned

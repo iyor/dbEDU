@@ -5,7 +5,7 @@ export function removeOne (courseName) {
   let courses = dbClient.collection(config.DB_COLL)
   return courses.findOneAndDelete(
   {
-    Name : courseName
+    Course_Name : courseName
   }).then(function(retList) {
     return retList
   })
@@ -27,4 +27,14 @@ export function listCollections() {
   let allCols = dbClient.listCollections()
   return allCols.toArray()
 }
+
+export function addCourse(courseName, courseDesc, courseMaterial) {
+  let courseList = dbClient.collection(config.DB_COLL)
+    return courseList.insert({
+      Course_Name : courseName,
+      Course_Descr : courseDesc,
+      Course_Material : courseMaterial
+    })
+}
+
     

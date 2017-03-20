@@ -38,6 +38,14 @@ router.get('/findCollections', (req, res, next) => {
   })
 })
 
+router.post('/addCourse', (req, res, next) => {
+  admin.addCourse(req.body.course, req.body.desc, req.body.material).then(function(addedCourse) {
+    res.json({
+      Course: addedCourse
+    })
+  })
+})
+
 //Temporary method - needs to be removed or hidden to
 //avoid unauthorized removal of courses.
 router.delete('/removeCourse', (req, res) => {

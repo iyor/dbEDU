@@ -15,9 +15,7 @@ router.get('/', (req, res, next) => {
 
 router.get('/courseNames', (req, res, next) => {
   student.getCourseNames().then(function(docs) {
-    res.json({
-      Course_Name : docs
-    })
+    res.json(docs)
   })
 })
 

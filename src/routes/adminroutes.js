@@ -8,6 +8,8 @@ export function removeOne (courseName) {
     Course_Name : courseName
   }).then(function(retList) {
     return retList
+  }).catch((error) => {
+    return 'This action is not allowed'
   })
 }
 
@@ -20,7 +22,9 @@ export function testFind () {
 
 export function dropAll() {
   let remCol = dbClient.collection(config.DB_COLL)
-  return remCol.drop()
+  return remCol.drop().catch((error) => {
+    return 'This action is not allowed'
+  })
 }
 
 export function listCollections() {
@@ -34,6 +38,8 @@ export function addCourse(courseName, courseDesc, courseMaterial) {
       Course_Name : courseName,
       Course_Descr : courseDesc,
       Course_Material : courseMaterial
+    }).catch((error) => {
+      return 'This action is not allowed'
     })
 }
 

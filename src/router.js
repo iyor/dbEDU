@@ -55,7 +55,7 @@ router.delete('/removeCourse', (req, res) => {
 })
 
 //Temporary method - needs to be removed or hidden to
-//avoid unauthorized removal of the entire course db. 
+//avoid unauthorized removal of the entire course DB.
 router.delete('/removeDB', (req, res) => {
   admin.dropAll().then(function(result){
     res.json({

@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "build": "./bin/build.sh",
-    "start": "NODE_PATH=dist node dist/app.js",
+    "start": "npm run build && npm run server",
+    "server": "NODE_PATH=dist node dist/app.js",
     "dev": "NODE_PATH=src NODE_ENV=development nodemon --watch src/ --exec babel-node src/app.js",
     "debug": "NODE_PATH=src babel-node debug src/app.js",
     "file": "NODE_PATH=src babel-node"

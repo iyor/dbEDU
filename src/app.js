@@ -7,11 +7,12 @@ import cookieParser from 'cookie-parser'
 import path from 'path'
 import db from 'services/db'
 
+// Setup new mongoDB
+const mdb = new db(config.DB_URL);
+
 // Setup express app
 var app = express();
 
-// Setup new mongoDB
-const mdb = new db(config.DB_URL);
 
 // Setup body-parser
 app.use(bodyParser.json());

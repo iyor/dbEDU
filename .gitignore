@@ -39,6 +39,9 @@ jspm_packages
 # To keep keys and passwords safe
 .env
 
+# To avoid pushing builded files
+dist/
+
 #OS-Specific
 .DS_Store
 

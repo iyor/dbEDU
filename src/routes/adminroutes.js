@@ -14,11 +14,11 @@ export function dropAll() {
   })
 }
 
-export function removeOne (id) {
+export function removeOne (courseName) {
   let courses = dbClient.collection(config.DB_COLL)
   return courses.findOneAndDelete(
   {
-    _id : id
+    Course_Name : courseName
   }).then(function(retList) {
     return retList
   }).catch((error) => {

@@ -8,7 +8,7 @@ var router = express.Router()
 router.get('/', (req, res, next) => {
   student.getCourses().then(function(course) {
     res.json({
-      API_methods: '/courseNames, /courseDesc(id), /courseMaterial(id), /findCollection(), /addCourse(course, desc, meterial), /removeCourse(course), /removeDB '
+      API_methods: '/courseNames, /courseDesc/*id*, /courseMaterial*id*, /findCollection(), /addCourse(course, desc, meterial), /removeCourse(course), /removeDB '
     })
   })
 })

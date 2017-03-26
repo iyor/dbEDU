@@ -21,19 +21,16 @@ router.get('/courseNames', (req, res, next) => {
 
 
 router.get('/courseDesc/:courseId', (req, res, next) => {
-  res.json({
-    Test: req.params
+  let courseId = req.params.courseId
+  student.getCourseDescription(courseId).then(function(docs) {
+    res.json(docs)
   })
- // student.getCourseDescription(req.body.id).then(function(docs) {
- //   res.json({
- //     Course_Description : docs
- //   })
- // })
 })
 
-router.post('/courseMaterial', (req, res, next) => {
-  student.getCourseMaterial(req.body.id).then(function(course) {
-    res.json({course})
+router.get('/courseMaterial/:courseId', (req, res, next) => {
+  let courseId = req.params.courseId
+  student.getCourseMaterial(courseId).then(function(docs) {
+    res.json(docs)
   })
 })
 

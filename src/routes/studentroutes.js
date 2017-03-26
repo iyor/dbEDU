@@ -25,34 +25,31 @@ export function getCourseNames() {
 export function getCourseDescription(id) {
   let findDocs = dbClient.collection(config.DB_COLL)
   return findDocs.find({}).toArray().then(function(courseList) {
-    let cleaned = []
+    let courseObj = {}
     courseList.forEach((course) => {
       if(course._id == id) {
-      let obj = {
-        id: course._id,
-        description: course.description
-      }
-      cleaned.push(obj)
+        courseObj = {
+          id: course._id,
+          description: course.description
+        }
       }
     })
-    return cleaned
+    return courseObj
   })
 } 
 
 export function getCourseMaterial(id) {
   let findCourses = dbClient.collection(config.DB_COLL)
   return findCourses.find({}).toArray().then(function(courseList) {
-    let cleanedCourse = []
+    let courseObj = {}
     courseList.forEach((course) => {
-     if(course._id == id){
-       let obj = {
-         id : course._id,
-         material: course.material
-       }
-       cleanedCourse.push(obj)
-     }
-
+      if(course._id == id){
+        courseObj = {
+          id : course._id,
+          material: course.material
+        }
+      }
     })
-    return cleanedCourse
+    return courseObj
   }) 
 }

@@ -8,7 +8,7 @@ var router = express.Router()
 router.get('/', (req, res, next) => {
   student.getCourses().then(function(course) {
     res.json({
-      Course: course 
+      API_methods: '/courseNames, /courseDesc/*id*, /courseMaterial*id*, /findCollection(), /addCourse(course, desc, meterial), /removeCourse(course), /removeDB '
     })
   })
 })
@@ -20,11 +20,17 @@ router.get('/courseNames', (req, res, next) => {
 })
 
 
-router.get('/courseDesc', (req, res, next) => {
-  student.getCourseDescription().then(function(docs) {
-    res.json({
-      Course_Description : docs
-    })
+router.get('/courseDesc/:courseId', (req, res, next) => {
+  let courseId = req.params.courseId
+  student.getCourseDescription(courseId).then(function(docs) {
+    res.json(docs)
+  })
+})
+
+router.get('/courseMaterial/:courseId', (req, res, next) => {
+  let courseId = req.params.courseId
+  student.getCourseMaterial(courseId).then(function(docs) {
+    res.json(docs)
   })
 })
 

@@ -45,7 +45,8 @@ export function getCourseMaterial(id) {
     courseList.forEach((course) => {
       if(course._id == id){
         courseObj = {
-          id : course._id,
+          id: course._id,
+          name: course.name,
           material: course.material
         }
       }

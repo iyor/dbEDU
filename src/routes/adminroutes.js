@@ -1,5 +1,5 @@
 import config from 'config'
-import { dbClient } from 'services/db'
+import { dbClient, obj_id } from 'services/db'
 
 export function listCollections() {
   let allCols = dbClient.listCollections()
@@ -14,23 +14,30 @@ export function dropAll() {
   })
 }
 
+//export function removeOne (id) {
+//  let courses = dbClient.collection(config.DB_COLL)
+//  return courses.findOneAndDelete(
+//  {
+//    _id : id
+//  }).then(function(retList) {
+//    return retList
+//  }).catch((error) => {
+//    return 'This action is not allowed'
+//  })
+//}
 export function removeOne (id) {
   let courses = dbClient.collection(config.DB_COLL)
-  return courses.findOneAndDelete(
-  {
-    _id : id
-  }).then(function(retList) {
-    return retList
-  }).catch((error) => {
-    return 'This action is not allowed'
+  let db_id = new obj_id(id)
+  return courses.remove({_id : db_id}).then(function(removed_status) {
+    return removed_status
   })
 }
 export function addCourse(courseName, courseDesc, courseMaterial) {
   let courseList = dbClient.collection(config.DB_COLL)
   return courseList.insert({
-    Course_Name : courseName,
-    Course_Descr : courseDesc,
-    Course_Material : courseMaterial
+    name : courseName,
+    description: courseDesc,
+    material : courseMaterial
   }).catch((error) => {
     return 'This action is not allowed'
   })

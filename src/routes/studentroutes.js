@@ -12,13 +12,13 @@ export function getCourseNames() {
   return findDocs.find({}).toArray().then(function(courseList) {
     let cleaned = []
     courseList.forEach((course) => {
-      let obj = { 
+      let courseObj = { 
         id: course._id,
         name: course.name 
       }
-      cleaned.push(obj)
+      cleaned.push(courseObj)
     })
-    return cleaned
+    return cleaned 
   })
 }
 
@@ -30,6 +30,7 @@ export function getCourseDescription(id) {
       if(course._id == id) {
         courseObj = {
           id: course._id,
+          name: course.name,
           description: course.description
         }
       }

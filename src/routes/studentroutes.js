@@ -36,18 +36,14 @@ export function getCourseDescription(id) {
 }
 
 export function getCourseMaterial(id) {
+  let db_id = new obj_id(id) 
   let findCourses = dbClient.collection(config.DB_COLL)
-  return findCourses.find({}).toArray().then(function(courseList) {
-    let courseObj = {}
-    courseList.forEach((course) => {
-      if(course._id == id){
-        courseObj = {
-          id: course._id,
-          name: course.name,
-          material: course.material
-        }
-      }
-    })
-    return courseObj
-  }) 
+  return findCourses.findOne({_id : db_id}).then(function(course) {
+    let courseObj = { 
+      id: course._id,
+      name: course.name,
+      material: course.material
+    }
+  return courseObj
+  })
 }

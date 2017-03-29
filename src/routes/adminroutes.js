@@ -14,18 +14,7 @@ export function dropAll() {
   })
 }
 
-//export function removeOne (id) {
-//  let courses = dbClient.collection(config.DB_COLL)
-//  return courses.findOneAndDelete(
-//  {
-//    _id : id
-//  }).then(function(retList) {
-//    return retList
-//  }).catch((error) => {
-//    return 'This action is not allowed'
-//  })
-//}
-export function removeOne (id) {
+export function removeOne(id) {
   let courses = dbClient.collection(config.DB_COLL)
   let db_id = new obj_id(id)
   return courses.remove({_id : db_id}).then(function(removed_status) {

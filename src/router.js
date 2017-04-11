@@ -52,6 +52,14 @@ router.get('/findCollections', (req, res, next) => {
   })
 })
 
+// Retrieves evaluator id with the specified id
+router.get('/getEvaluator/:evalId', (req, res, next) => {
+  let evalId = req.params.evalId
+  student.getEvaluator(evalId).then(function(docs) {
+    res.json(docs) 
+  })
+})
+
 //The methods below will all alter the database, and must be used with
 //caution.
 //Adds a new course with a speicifc name, description and material/content. A unique id is given to it when uploaded to the database.
@@ -81,4 +89,5 @@ router.delete('/removeDB', (req, res) => {
     })
   })
 })
+
 export default router

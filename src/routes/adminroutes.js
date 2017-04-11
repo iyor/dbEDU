@@ -8,21 +8,21 @@ export function listCollections() {
 
 
 export function dropAll() {
-  let remCol = dbClient.collection(config.DB_COLL)
+  let remCol = dbClient.collection(config.DB_COURSES)
   return remCol.drop().catch((error) => {
     return 'This action is not allowed'
   })
 }
 
 export function removeOne(id) {
-  let courses = dbClient.collection(config.DB_COLL)
+  let courses = dbClient.collection(config.DB_COURSES)
   let db_id = new obj_id(id)
   return courses.remove({_id : db_id}).then(function(removed_status) {
     return removed_status
   })
 }
 export function addCourse(courseName, courseDesc, courseMaterial) {
-  let courseList = dbClient.collection(config.DB_COLL)
+  let courseList = dbClient.collection(config.DB_COURSES)
   return courseList.insert({
     name : courseName,
     description: courseDesc,

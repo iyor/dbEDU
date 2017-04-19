@@ -42,7 +42,7 @@ export function getCourseMaterial(id) {
     let courseObj = { 
       id: course._id,
       name: course.name,
-      material: course.material
+      lessons: course.lessons
     }
   return courseObj
   })

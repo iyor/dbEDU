@@ -6,7 +6,6 @@ export function listCollections() {
   return allCols.toArray()
 }
 
-
 export function dropAll() {
   let remCol = dbClient.collection(config.DB_COURSES)
   return remCol.drop().catch((error) => {

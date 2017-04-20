@@ -25,7 +25,7 @@ router.get('/courseNames', (req, res, next) => {
 
 //Returns the description, name and id of a course given the
 //unique id. The id will probably not need to be included in
-//this return-statement, but is included for simlicity.
+//this return-statement, but is included for simplicity.
 router.get('/courseDesc/:courseId', (req, res, next) => {
   let courseId = req.params.courseId
   student.getCourseDescription(courseId).then(function(docs) {
@@ -86,7 +86,7 @@ router.delete('/removeDB', (req, res) => {
   admin.dropAll().then(function(result){
     res.json({
       Deleted: result
-    })
+   })
   })
 })
 

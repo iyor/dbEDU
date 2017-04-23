@@ -27,7 +27,7 @@ course_router.get('/desc/:courseId', (req, res, next) => {
 course_router.get('/material/:courseId', (req, res, next) => {
   let courseId = req.params.courseId
   student.getCourseMaterial(courseId).then(function(material) {
-    res.json(description)
+    res.json(material)
   })
 })
 

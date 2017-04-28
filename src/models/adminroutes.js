@@ -25,7 +25,7 @@ export function addCourse(courseName, courseDesc, courseMaterial) {
   return courseList.insert({
     name : courseName,
     description: courseDesc,
-    material : courseMaterial
+    lessons : courseMaterial
   }).catch((error) => {
     return 'This action is not allowed'
   })

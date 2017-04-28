@@ -13,7 +13,6 @@ const mdb = new db(config.DB_URL);
 // Setup express app
 var app = express();
 
-
 // Setup body-parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -27,8 +26,10 @@ app.use(logger('dev'));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// redirect to use one-single router, which itself uses differnet routes.
 app.use('/', router);
 
+// Port et to in config to work with Heroku.
 app.listen(config.PORT);
 
 // catch 404 and forward to error handler         -- DETTA KOM MED I TEMPLATE

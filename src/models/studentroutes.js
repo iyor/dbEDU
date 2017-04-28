@@ -1,7 +1,6 @@
 import { dbClient, obj_id } from 'services/db'
 import config from 'config'
 
-
 export function getCourses() {
   let findDocs = dbClient.collection(config.DB_COURSES)
   return findDocs.find({}).toArray()

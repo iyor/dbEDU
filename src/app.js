@@ -26,7 +26,7 @@ app.use(logger('dev'));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// redirect to use one-single router, which itself uses differnet routes.
+// redirect to use one-single router, which itself uses different routes.
 app.use('/', router);
 
 // Port et to in config to work with Heroku.

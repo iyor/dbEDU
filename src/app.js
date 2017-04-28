@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // redirect to use one-single router, which itself uses different routes.
 app.use('/', router);
 
-// Port et to in config to work with Heroku.
+// Port set to config.PORT to work with Heroku's config variables.
 app.listen(config.PORT);
 
 // catch 404 and forward to error handler         -- DETTA KOM MED I TEMPLATE
